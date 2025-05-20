@@ -9,15 +9,23 @@ const {
   getIngresosPorDiaPorMes, 
   getEstadoRutaPorMesYTema, 
   getCantidadTemasPorEstado,
-  getResumenStats, // ← Añade este nuevo controlador
-  getCodigosSubsecretaria
+  getResumenTotalStats,
+  getTemas,
+  getResumenStats,
+  getCodigosSubsecretaria,
+  getRegistrosAbiertos,
+  getResumenTotalPendientes
 } = require('../controllers/dataController');
 
 router.get('/', getDataStats);
 
 // ✅ Nueva ruta para el resumen de tarjetas (añade esta línea)
 router.get("/stats/resumen-tarjetas", getResumenStats);
-router.get("/stats/codigos-subsecretaria", getCodigosSubsecretaria)
+router.get("/stats/resumen-total-tarjetas", getResumenTotalStats);
+router.get("/stats/temas", getTemas);
+router.get("/stats/codigos-subsecretaria", getCodigosSubsecretaria);
+router.get("/stats/registros-abiertos", getRegistrosAbiertos);
+router.get("/stats/resumen-total-pendientes", getResumenTotalPendientes)
 
 // ✅ Nueva ruta: estadísticas por estado y mes
 router.get("/stats/estado-mes", getEstadoMesStats);
